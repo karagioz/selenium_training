@@ -8,6 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 @pytest.fixture()
 def driver(request):
     wd = webdriver.Chrome()
+    wd.implicitly_wait(10)
 
     def fin():
         wd.quit()
