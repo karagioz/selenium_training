@@ -4,7 +4,9 @@ from selenium import webdriver
 
 @pytest.fixture()
 def driver(request):
-    wd = webdriver.Chrome()
+    wd = webdriver.Chrome(desired_capabilities={"chromeOptions": {"args": ["start-maximized"]}})
+    # wd = webdriver.Firefox(capabilities={"marionette": False})
+    # wd = webdriver.Ie()
     wd.implicitly_wait(10)
 
     def fin():
