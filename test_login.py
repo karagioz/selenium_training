@@ -6,6 +6,7 @@ from selenium import webdriver
 def driver(request):
     wd = webdriver.Chrome(desired_capabilities={"chromeOptions": {"args": ["start-maximized"]}})
     # wd = webdriver.Firefox(capabilities={"marionette": False})
+    # wd = webdriver.Firefox(firefox_binary="C:\\Program Files\\Firefox Nightly\\firefox.exe")
     # wd = webdriver.Ie()
     wd.implicitly_wait(10)
 
