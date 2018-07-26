@@ -1,0 +1,7 @@
+{
+  "web_admin": {
+    "baseUrl": "http://localhost/litecart/admin",
+    "username": "admin",
+    "password": "admin"
+  }
+}
