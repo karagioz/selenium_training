@@ -1,6 +1,5 @@
 import os.path
 import time
-from selenium.webdriver.support.ui import Select
 
 
 def test_create_product(app):
@@ -22,13 +21,8 @@ def open_tab(app, tab_name):
     time.sleep(1)
 
 
-def set_select_option(app, select_name, option_text):
-    select_element = Select(app.wd.find_element_by_xpath("//select[@name='%s']" % select_name))
-    select_element.select_by_visible_text('%s' % option_text)
-
-
 def fill_information_tab(app):
-    set_select_option(app, select_name='manufacturer_id', option_text='ACME Corp.')
+    app.general.set_select_option(select_name='manufacturer_id', option_text='ACME Corp.')
     app.wd.find_element_by_xpath("//input[@name='keywords']").send_keys('Fascinating green frog')
     app.wd.find_element_by_xpath("//input[@name='short_description[en]']"). \
         send_keys('Fascinating green frog is the best present for everyone')
@@ -57,7 +51,7 @@ def fill_general_tab(app):
 def fill_prices_tab(app):
     app.wd.find_element_by_xpath("//input[@name='purchase_price']").clear()
     app.wd.find_element_by_xpath("//input[@name='purchase_price']").send_keys('23')
-    set_select_option(app, select_name='purchase_price_currency_code', option_text='US Dollars')
+    app.general.set_select_option(select_name='purchase_price_currency_code', option_text='US Dollars')
     app.wd.find_element_by_xpath("//input[@name='prices[USD]']").send_keys('23')
     app.wd.find_element_by_xpath("//input[@name='gross_prices[USD]']").send_keys('23')
     app.wd.find_element_by_xpath("//input[@name='prices[EUR]']").send_keys('22')
