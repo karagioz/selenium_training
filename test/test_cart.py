@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 def test_cart(app):
     wait = WebDriverWait(app.wd, 10)
     for i in range(3):
-        add_product_to_cart(app,wait)
+        add_product_to_cart(app, wait)
     app.wd.find_element_by_xpath("//a[text()='Checkout »']").click()
     products_in_cart = app.wd.find_elements_by_css_selector("li.shortcut")
     for j in range(len(products_in_cart)):
