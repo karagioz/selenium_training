@@ -11,7 +11,8 @@ class Application:
         elif browser == "firefox_nightly":
             self.wd = webdriver.Firefox(firefox_binary="C:\\Program Files\\Firefox Nightly\\firefox.exe")
         elif browser == "chrome":
-            self.wd = webdriver.Chrome(desired_capabilities={"chromeOptions": {"args": ["start-maximized"]}})
+            self.wd = webdriver.Chrome(desired_capabilities={"chromeOptions": {"args": ["start-maximized"]},
+                                                             "loggingPrefs": {'performance': 'ALL'}})
         elif browser == "ie":
             self.wd = webdriver.Ie()
         else:
