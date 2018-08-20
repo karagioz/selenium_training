@@ -1,6 +1,9 @@
 from selenium import webdriver
 from fixture.session import SessionHelper
 from fixture.general import GeneralHelper
+from fixture.main_page import MainPageHelper
+from fixture.product_page import ProductPageHelper
+from fixture.cart_page import CartPageHelper
 # from browsermobproxy import Server
 
 
@@ -27,6 +30,9 @@ class Application:
         self.wd.implicitly_wait(1)
         self.session = SessionHelper(self)
         self.general = GeneralHelper(self)
+        self.main = MainPageHelper(self)
+        self.product = ProductPageHelper(self)
+        self.cart = CartPageHelper(self)
         self.base_url = base_url
 
     def is_valid(self):
